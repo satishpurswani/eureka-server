@@ -11,3 +11,14 @@ eureka:
     fetchRegistry: false
     server:
       waitTimeInMsWhenSyncEmpty: 0
+
+zuul:
+  #Service will be mapped under the /api URI
+  prefix: /api
+  routes:
+    meds-db-server:
+      path: /meds-db-server/**
+      url: http://localhost:8082
+    patient-db-server:
+      path: /patient-db-server/**
+      url: http://localhost:8081
